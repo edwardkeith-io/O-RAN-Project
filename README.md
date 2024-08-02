@@ -7,7 +7,7 @@ A srsRAN+USRP Research Project for Auckland University of Technology
 # Executive Summary
 
 
-Our proposed project aims to emulate the implementation of an open-source 5G small cell base-station, leveraging Software Defined Radios (SDRs) and off-the-shelf hardware. The objective is to replicate the functionality described in the paper [T ARXIV.ORG: 2205.13178](Research Paper with notation by EK.pdf), utilizing a standard laptop/PC and National Instrument B-205-mini SDR (Software Defined Radios) module with appropriate antennas.
+Our proposed project aims to emulate the implementation of an open-source 5G small cell base-station, leveraging Software Defined Radios (SDRs) and off-the-shelf hardware. The objective is to replicate the functionality described in the paper [T ARXIV.ORG: 2205.13178](research_paper.pdf), utilizing a standard laptop/PC and National Instrument [B-205-mini SDR](https://www.ettus.com/all-products/usrp-b205mini-i/) (Software Defined Radios) module with appropriate antennas.
 
 -   Scope: The project scope encompasses the emulation of both RAN and mobile core network functionalities using open-source software and SDR technology. We will focus on developing software components that replicate the functions of proprietary hardware, ensuring compatibility with existing network infrastructures.
 
@@ -27,11 +27,11 @@ Our proposed project aims to emulate the implementation of an open-source 5G sma
 
 ### Introduction to Client Organization:
 
-The client for this project is **Auckland University of Technology**. The primary contact is Edmund Lai, who is serving as the touchpoint for client interaction.
+The client for this project is **Auckland University of Technology**. The primary contact is Prof. Edmund Lai, who is serving as the touchpoint for client interaction.
 
 ### Problem, Need, or Opportunity:
 
-Although the technology described by the O-RAN Alliance specifications has been defined and implemented successfully within research and development environments, there does not seem to be straightforward and exhaustive documentation on the technical deployment of a network following the O-RAN architecture.
+Although the technology described by the [O-RAN Alliance](https://www.o-ran.org/) specifications has been defined and implemented successfully within research and development environments, there does not seem to be straightforward and exhaustive documentation on the technical deployment of a network following the O-RAN architecture.
 
 All existing published research appears to be written for the purpose of dissemination within academic circles, assuming a highly specialised technical knowledge of its reader. We propose that the creation of a freely available and comprehensible record of the implementation of a 5G testbed following O-RAN standards will allow other researchers to access and replicate our project, laying the foundation for further groundwork for flexible, interoperable, and non-proprietary mobile networks.
 
