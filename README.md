@@ -1,2 +1,2 @@
-# ORAN-Project
-srsRAN+USRP Research Project for AUT
+# ORAN Project
+A srsRAN+USRP Research Project for Auckland University of Technology
