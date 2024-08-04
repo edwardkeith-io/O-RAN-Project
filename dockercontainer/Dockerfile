@@ -26,7 +26,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 # RUN apt-get install -y oran-related-packages
 # COPY . /path/to/project
 
-# Expose necessary ports (if any)
+# Expose necessary network ports (if any)
 # EXPOSE 1234
 
 # Define entry point
