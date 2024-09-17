@@ -7,7 +7,7 @@ A srsRAN+USRP Research Project for Auckland University of Technology
 # Executive Summary
 
 
-Our project aims to emulate the implementation of an open-source 5G small cell base-station, leveraging Software Defined Radios (SDRs) and off-the-shelf hardware. The objective is to replicate the functionality described in the paper [T ARXIV.ORG: 2205.13178](research_paper.pdf), utilizing a standard laptop/PC and National Instrument [B-205-mini SDR](https://www.ettus.com/all-products/usrp-b205mini-i/) (Software Defined Radios) module with appropriate antennas.
+Our project aims to emulate the implementation of an open-source 5G small cell base-station, leveraging Software Defined Radios (SDRs) and off-the-shelf hardware. The primary objective is to replicate the functionality described in the paper [T ARXIV.ORG: 2205.13178](research_paper.pdf), utilizing a standard laptop/PC and National Instrument [B-205-mini SDR](https://www.ettus.com/all-products/usrp-b205mini-i/) (Software Defined Radios) module with appropriate antennas. Secondary objective is production of detailed documentation on the process and troubleshooting, to aid in further replication. 
 
 -   Scope: The project scope encompasses the emulation of both RAN and mobile core network functionalities using open-source software and SDR technology. We will focus on developing software components that replicate the functions of proprietary hardware, ensuring compatibility with existing network infrastructures.
 
