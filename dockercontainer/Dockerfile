@@ -61,4 +61,4 @@ RUN apt-get update && apt-get install -y \
     sudo ./srsran_install_configs.sh user && sudo ./srsran_install_configs.sh service
 
 # Run udev commands at runtime (if needed)
-# CMD sudo udevadm control --reload-rules && sudo udevadm trigger && /bin/bash
+CMD sudo udevadm control --reload-rules && sudo udevadm trigger && /bin/bash
