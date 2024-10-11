@@ -25,7 +25,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     && apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # UHD setup
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get -y install \
     autoconf automake build-essential ccache cmake cpufrequtils doxygen ethtool fort77 g++ gir1.2-gtk-3.0 git \
     gobject-introspection gpsd gpsd-clients inetutils-tools libasound2-dev libboost-all-dev libcomedi-dev libcppunit-dev \
     libfftw3-bin libfftw3-dev libfftw3-doc libfontconfig1-dev libgmp-dev libgps-dev libgsl-dev liblog4cpp5-dev libncurses5 \
@@ -60,5 +60,5 @@ RUN apt-get update && apt-get install -y \
     cd srsRAN_4G && mkdir build && cd build && cmake ../ && make && sudo make install && \
     sudo ./srsran_install_configs.sh user && sudo ./srsran_install_configs.sh service
 
-# Run udev commands at runtime (if needed)
-CMD sudo udevadm control --reload-rules && sudo udevadm trigger && /bin/bash
+# Replace the udevadm reload and trigger commands with a shell script that can be executed at runtime
+CMD /bin/bash
