@@ -17,8 +17,8 @@ RUN apt-get update && \
     software-properties-common \
     net-tools \
     iputils-ping \
+    usbutils \
     && rm -rf /var/lib/apt/lists/*
-    apt-get install usbutils
 
 # Install Docker inside the container (optional, if needed)
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
