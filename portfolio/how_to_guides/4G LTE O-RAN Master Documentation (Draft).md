@@ -36,7 +36,7 @@ OS
 	Ubuntu 22.04.4 LTS
 
 CPU
-	Intel Core i5-8365 1.60GHz 4core/8threads
+	Intel Core i5-8365 1.60GHz 4cores/8threads
 
 RAM
 	16GB DDR4
