@@ -2,7 +2,7 @@
 A srsRAN+USRP Research Project for Auckland University of Technology
 
 > [!NOTE]
-> This is a final year capstone project, not intended for external application.
+> This is a final year capstone project, not currently intended for external application.
 
 # Executive Summary
 
