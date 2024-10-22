@@ -451,7 +451,7 @@ After installation, start and enable the SSH service to ensure it’s running an
 
 ```bash
 sudo systemctl start ssh
-sudo systemctl enable ssh  # Enable SSH to start on boot
+sudo systemctl enable ssh
 ```
 
 ### Step 3: Check SSH Status
@@ -475,7 +475,7 @@ sudo ufw reload
 Check the IP address of the machine running `srsEPC` and `srsENB`:
 
 ```bash
-ifconfig  # or ip a to list network interfaces and IPs
+ifconfig
 ```
 
 Ensure this IP is accessible from the UE machine.
@@ -486,7 +486,7 @@ If you prefer not to use the root account, create a new user for file transfers 
 
 ```bash
 sudo adduser transferuser
-sudo passwd transferuser  # Set a password for the new user
+sudo passwd transferuser
 ```
 
 e.g. 
