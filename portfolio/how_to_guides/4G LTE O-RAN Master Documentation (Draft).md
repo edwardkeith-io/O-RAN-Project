@@ -354,9 +354,12 @@ WSL usbip: error: Attach Request for 7-4 failed - Device not found
 
 # Docker Operation
 
-How to run the docker container
+How to run the docker container @elfadog needs to input here 
 
-Then refer to Operation, Stage 1
+
+Once the Docker container is running, and you have a new terminal window to access it, refer to Operation Stage 1.
+
+Please note that when issuing commands within the Docker container (as opposed to natively on a Linux test system), you can omit the `sudo` portion of the command. In order to correctly operate the USRP device, the Docker container must have admin privilege. 
 
 ---
 # <mark style="background: #BBFABBA6;">Operation</mark>
@@ -378,16 +381,64 @@ Did it work?
 
 ## Ping
 
-Put how to ping when using srsRAN here
+### Start srsEPC:
+
+On the machine designated for the core network (Machine 1), start srsEPC by running in terminal:
+
+```bash
+srsepc
+```
+This will create a virtual network interface named srs_spgw_sgi with an IP address of 172.16.0.1.
+
+### Start srsENB:
+
+On the same machine (Machine 1), in a separate terminal, start srsENB by running:
+
+```bash
+srsenb
+```
+
+### Start srsUE:
+
+On the second machine (Machine 2), run srsUE by executing:
+
+```bash
+srsue
+```
+
+This will create a virtual network interface named tun_srsue with an IP address in the 172.16.0.x range, such as 172.16.0.2. That IP address will be assigned to the UE device. 
+
+### Ping Test:
+
+To test connectivity, run a ping command from the UE to the EPC's IP address:
+
+```bash
+ping 172.16.0.1
+```
+
+If you want to test from the EPC to the UE, first find out the UE's assigned IP address (e.g., 172.16.0.2) and then run:
+
+```bash
+ping <ue_ip_address>
+```
+
+If you want to test constant connectivity, for example when monitoring range, then you can run an endless ping from the UE device:
+
+```bash
+ping -t 172.16.0.1
+```
 
 ## Using RTL-SDR with SDR++ and Wireshark to test the connection:
 
+@elfadog if you have any info on Wireshark it goes here 
+
 [Open: SDR++ on 4G Band 7.png](Assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
 ![](Assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
+
 ## File Transfer:
 
 ### Step 1: Install OpenSSH Server
-Install the OpenSSH server to accept incoming SSH and `scp` connections.
+Install an OpenSSH server to accept incoming SSH and `scp` connections.
 
 ```bash
 sudo apt update
@@ -466,7 +517,7 @@ After the transfer is complete, log into the EPC/ENB machine and check the desti
 ls /path/to/destination/
 ```
 
-```
+```bash
 ls /home/katnap/ttransfer/received
 ```
 
