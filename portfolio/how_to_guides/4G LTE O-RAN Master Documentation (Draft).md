@@ -433,8 +433,8 @@ ping -t 172.16.0.1
 
 @elfadog if you have any info on Wireshark it goes here 
 
-[Open: SDR++ on 4G Band 7.png](Assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
-![](Assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
+[Open: SDR++ on 4G Band 7.png](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
+![](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
 
 ## File Transfer:
 
@@ -525,10 +525,10 @@ ls /home/katnap/ttransfer/received
 ### Examples:
 
 Client end should look like this:
-![](Assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/1e34d10e6b50bb2558b54c4885e871e4_MD5.jpg)
+![](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/1e34d10e6b50bb2558b54c4885e871e4_MD5.jpg)
 
 Host end srsepc/srsenb should look like this:
-![](Assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/9805d5a0ccb023bc03c0741cd968000d_MD5.jpg)
+![](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/9805d5a0ccb023bc03c0741cd968000d_MD5.jpg)
 
 ---
 # <mark style="background: #FFB86CA6;">Troubleshooting</mark>
