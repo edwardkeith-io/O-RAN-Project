@@ -359,7 +359,8 @@ How to run the docker container @elfadog needs to input here
 
 Once the Docker container is running, and you have a new terminal window to access it, refer to Operation Stage 1.
 
-Please note that when issuing commands within the Docker container (as opposed to natively on a Linux test system), you can omit the `sudo` portion of the command. In order to correctly operate the USRP device, the Docker container must have admin privilege. 
+Please note that when issuing commands within the Docker container (as opposed to natively on a Linux test system), you can omit the `sudo` portion of the command. In order to correctly operate the USRP device, the Docker container must have admin privilege.
+Make sure to check the commands are applicable to your launch environment, and amend the `sudo` inclusion if not. 
 
 ---
 # <mark style="background: #BBFABBA6;">Operation</mark>
