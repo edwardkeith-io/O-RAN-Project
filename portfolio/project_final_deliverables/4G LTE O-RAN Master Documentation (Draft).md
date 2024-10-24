@@ -206,12 +206,15 @@ Did it work?
     ```bash
     sudo ./srsran_install_configs.sh user && sudo ./srsran_install_configs.sh service
     ```
-
+7. **I**    
+        nano /etc/srsran/<srsname>.conf 
 In the event that the above configuration install command fails, a srsUE example configuration file can be found [here](https://github.com/srsRAN/srsRAN_4G/blob/master/srsue/ue.conf.example)
 
 Did it work? 
 - Yes - Continue to Operation, Stage 1
 - No - Refer to troubleshooting part ?
+
+
 
 ---
 # <mark style="background: #ADCCFFA6;">Docker Installation</mark>
