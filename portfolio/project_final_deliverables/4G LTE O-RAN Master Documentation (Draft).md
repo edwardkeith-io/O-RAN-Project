@@ -228,7 +228,7 @@ You need to be running Windows Subsystem for Linux (WSL). This enables nested op
 
 1. Download Docker Desktop
 
-- Visit https://docs.docker.com/docker-for-windows/install
+- Visit https://docs.docker.com/desktop/install/windows-install/
 - Download the latest Docker Desktop Installer executable
 - Run the Installer
 - Double-click `Docker Desktop Installer.exe`
@@ -342,14 +342,19 @@ sudo docker run -it --privileged --device=/dev/bus/usb/001/002 srsdocker
 
 #### Interactive Install Method
 
-- Download Docker Desktop from the official Docker website
-- Double-click the downloaded Docker.dmg file
-- Drag the Docker icon to your Applications folder1
-Double-click Docker.app in the Applications folder to launch
-Accept the Docker Subscription Service Agreement
+- Visit https://docs.docker.com/desktop/install/mac-install/
+- Download the latest Docker Desktop Installer
+- Double-click the Docker.dmg file
+- Drag the Docker icon to your Applications folder
+- Double-click Docker.app in the Applications folder to launch
+- Accept the Docker Subscription Service Agreement
 
 ### Install and Configure Docker On Linux 
 
+#### Install Docker on Linux 
+
+- Visit https://docs.docker.com/desktop/install/linux/ubuntu/
+- 
 This method does not require pre-Docker USB configuration, you only need to determine where the USRP is connected. 
 
 1. Plug in the USRP. In your Linux terminal, the device should now be visible. You can check with:
