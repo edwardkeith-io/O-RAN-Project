@@ -3,6 +3,7 @@
 
 
 The srsRAN 4G/LTE O-RAN project enables the implementation of a mobile base station using open-source software and Software Defined Radio (SDR) hardware, offering an alternative to traditional proprietary solutions. This document is a technical guide for implementation.
+
 ## Implementation Methods
 
 **Native Installation**
@@ -22,13 +23,14 @@ The document includes testing procedures:
 - Network connectivity testing
 - File transfer protocols
 - Signal monitoring
+
 ## Troubleshooting guides
 
 ---
 # <mark style="background: #FFF3A3A6;">srsRAN environment overview:</mark>
 
 
-![](srsRAN_topology.png)
+![](portfolio\master_doc_assets\srsRAN_topology.png)
 
 ---
 # <mark style="background: #FFB86CA6;">System and hardware requirements</mark>
@@ -550,8 +552,7 @@ ping -t 172.16.0.1
 
 @elfadog if you have any info on Wireshark it goes here 
 
-[Open: SDR++ on 4G Band 7.png](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
-![](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/b04646cfa530aa066948971c79aae67c_MD5.jpeg)
+[SDR++ on 4G Band 7.png](portfolio\master_doc_assets\waterfall.jpeg)
 
 ## File Transfer over srsRAN
 
@@ -619,11 +620,11 @@ scp /path/to/local/file transferuser@<EPC_IP>:/path/to/destination/
 - Replace `/path/to/destination/` with the directory on the EPC/ENB machine where you want the file to go.
 
 ```example
-scp testfile.txt 172.16.0.1:/home/katnap/ttransfer/received 
+scp testfile.txt 172.16.0.1:/home/katnap/transfer/received 
 
 -- or --
 
-scp /home/katnap/ttransfer/sent/testfile.txt 172.16.0.1:/home/katnap/ttransfer/received
+scp /home/katnap/transfer/sent/testfile.txt 172.16.0.1:/home/katnap/transfer/received
 ```
 
 ### Step 8: Verify the File Transfer
@@ -635,16 +636,16 @@ ls /path/to/destination/
 ```
 
 ```bash
-ls /home/katnap/ttransfer/received
+ls /home/katnap/transfer/received
 ```
 
 ### Examples:
 
 Client end should look like this:
-![](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/1e34d10e6b50bb2558b54c4885e871e4_MD5.jpg)
+![](portfolio\master_doc_assets\client_end.jpg)
 
 Host end srsepc/srsenb should look like this:
-![](document_assets/master_doc_assets/4G%20LTE%20O-RAN%20Master%20Documentation%20(Draft)/9805d5a0ccb023bc03c0741cd968000d_MD5.jpg)
+![](portfolio\master_doc_assets\host_end.jpg)
 
 ---
 # <mark style="background: #FFB86CA6;">Troubleshooting</mark>
