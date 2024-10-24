@@ -1,6 +1,4 @@
-#tech #aut #programming #howto #srsRAN #4GLTE #RnD 
 
----
 # <mark style="background: #D2B3FFA6;">Executive Summary</mark>
 
 
@@ -85,7 +83,7 @@ UHD Package:
 1. **Update and Install Required Packages**:
    This step ensures the system has all necessary libraries and tools for building UHD.
 
-```bash
+    ```bash
    sudo apt-get -y install autoconf automake build-essential ccache cmake cpufrequtils doxygen ethtool fort77 g++ gir1.2-gtk-3.0 git gobject-introspection gpsd gpsd-clients inetutils-tools libasound2-dev libboost-all-dev libcomedi-dev libcppunit-dev libfftw3-bin libfftw3-dev libfftw3-doc libfontconfig1-dev libgmp-dev libgps-dev libgsl-dev liblog4cpp5-dev libncurses5 libncurses5-dev libpulse-dev libqt5opengl5-dev libqwt-qt5-dev libsdl1.2-dev libtool libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusb-dev libxi-dev libxrender-dev libzmq3-dev libzmq5 ncurses-bin python3-cheetah python3-click python3-click-plugins python3-click-threading python3-dev python3-docutils python3-gi python3-gi-cairo python3-gps python3-lxml python3-mako python3-numpy python3-opengl python3-pyqt5 python3-requests python3-scipy python3-setuptools python3-six python3-sphinx python3-yaml python3-zmq python3-ruamel.yaml swig wget
    ```
 
@@ -136,6 +134,7 @@ UHD Package:
 Did it work? 
 - Yes - Continue to Native Installation, Stage 2
 - No - Refer to troubleshooting part ?
+
 ## Stage 2: Test and Verify the Operation of the USRP
 
 - Connect the USRP to the Host Computer
@@ -163,6 +162,7 @@ uhd_find_devices --args="serial=12345678"
 Did it work? 
 - Yes - Continue to Native Installation, Stage 3
 - No - Refer to troubleshooting part ?
+
 ## Stage 3: Install srs-RAN software
 
 1. **Install Dependencies for srsRAN**
@@ -213,7 +213,6 @@ Did it work?
 - Yes - Continue to Operation, Stage 1
 - No - Refer to troubleshooting part ?
 
-
 ---
 # <mark style="background: #ADCCFFA6;">Docker Installation</mark>
 
@@ -221,9 +220,52 @@ Did it work?
 
 The srsRAN ecosystem relies upon access to a hardware radio unit (for example the B205-mini). Due to USB passthrough complications, we recommend running Docker on a native Linux install (ideally Ubuntu 22.04). If you wish to use a different virtual environment, please refer to the steps below. 
 
-### Configure Docker On Windows
+### Install and Configure Docker On Windows
 
 You need to be running Windows Subsystem for Linux (WSL). This enables nested operating systems, in our case Ubuntu processes will run within Windows. This allows us to pass a USB device from Windows to WSL, which is necessary because Docker Desktop (which can run natively in Windows) does not fully support USB passthrough. Essentially we are using WSL to launch the docker container. 
+
+#### Install Docker
+
+1. Download Docker Desktop
+
+- Visit https://docs.docker.com/docker-for-windows/install
+- Download the latest Docker Desktop Installer executable
+- Run the Installer
+- Double-click `Docker Desktop Installer.exe`
+- Ensure "Use WSL 2" option is selected during configuration
+- Follow the installation wizard
+
+2. Post-Installation Setup
+
+- Restart your computer after installation completes
+- After restart, Docker Desktop will start automatically
+- Accept the Docker Subscription Service Agreement when prompted
+
+3. If WSL 2 is required:
+
+- Open PowerShell as administrator
+- Run: `wsl --install`
+
+4. Verify the installation:
+- Open PowerShell
+- Run: `docker run hello-world`
+
+5. Optional Configuration:
+
+- To configure Docker to start automatically with Windows:
+  - Open Docker Desktop
+  - Go to Settings
+  - Enable "Start Docker Desktop when you log in"
+
+Troubleshooting:
+
+If you encounter any issues with user permissions, add your user account to the docker-users group:
+
+```powershell
+net localgroup docker-users <username> /add
+```
+
+#### Configure Docker for USB passthrough
 
 1. Install the `usbipd-win` tool, which allows you to share USB devices with WSL 2:
 	Download and install from: [https://github.com/dorssel/usbipd-win/releases](https://github.com/dorssel/usbipd-win/releases)
@@ -296,9 +338,17 @@ sudo docker run -it --privileged --device=/dev/bus/usb/001/002 srsdocker
 
 - Replace `<bus>` and `<device>` with your appropriate numbers from Step 2. Also note the added `--privileged` modifier in order to avoid permissions errors.
 
-### Configure Docker On Mac
+### Install and Configure Docker On Mac
 
-### Configure Docker On Linux 
+#### Interactive Install Method
+
+- Download Docker Desktop from the official Docker website
+- Double-click the downloaded Docker.dmg file
+- Drag the Docker icon to your Applications folder1
+Double-click Docker.app in the Applications folder to launch
+Accept the Docker Subscription Service Agreement
+
+### Install and Configure Docker On Linux 
 
 This method does not require pre-Docker USB configuration, you only need to determine where the USRP is connected. 
 
