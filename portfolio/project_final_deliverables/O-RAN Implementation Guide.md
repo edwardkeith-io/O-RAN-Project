@@ -552,7 +552,7 @@ ping -t 172.16.0.1
 
 You can test to see if there is a signal being output by the USRP with Wireshark and an appropriate radio receiver, such as a RTL-SDR. This will not enable actually decrypting the traffic, just observing that a signal exists. It is recommended only as an ad-hoc check. 
 
-Install appropriate software for interfacing with the receiver such as SDR++. Input the 4G LTE band 7 frquency parameters and check the waterfall graph for a signal. 
+Install appropriate software for interfacing with the receiver such as SDR++. Input the 4G LTE band 7 frequency parameters and check the waterfall graph for a signal. 
 
 [SDR++ on 4G Band 7.png](portfolio\master_doc_assets\waterfall.jpeg)
 
