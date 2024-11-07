@@ -1,4 +1,5 @@
-#Ansible-playbook for srsRAN setup
+# Draft Ansible playbook for srsRAN setup
+# Missing components - further development required
 #
 #Explanation:
 #
