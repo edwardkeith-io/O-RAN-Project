@@ -18,7 +18,14 @@ Prof. Edmund Lai<br>
 Dr. Bobby Mee Loong Yang<br>
 Prof. Nurul Sarkar<br>
 Dr. Ramesh Lal<br>
-Dr. Jing Ma<br>
+Dr. Jing Ma<br><br>
+
+**Research Team:**<br><br>
+Edward Keith<br>
+Chris Escandor<br>
+Katarina Milicevic<br>
+Sam Cathro<br><br>
+
 ## Background/Rationale
 
 5G small cell (pico) base-stations can provide advanced features and standalone capabilities for private networks. There are two main parts of a mobile base-station – the radio access network (RAN) and the mobile core network. These parts are typically bundled and sold as proprietary hardware and software. However, the advance in virtualization technologies and commercial off-the-shelf (COTS) hardware has made it possible to implement such a base station using opensource software and Software Defined Radios (SDR).
