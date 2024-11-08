@@ -69,7 +69,7 @@
         name: <docker_image_name>  # Replace with the Docker image name for srsRAN
         source: pull
 
-    - name: Run srsRAN container
+    - name: Run srsRAN container #check USB correctly passed
       docker_container:
         name: srsran
         image: <docker_image_name>  # Replace with the Docker image name for srsRAN
