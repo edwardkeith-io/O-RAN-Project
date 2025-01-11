@@ -45,7 +45,7 @@ The O-RAN R&D project enables the implementation of a 4G LTE or 5G indoor cellul
 
 # <mark style="background: #FFF3A3A6;">srsRAN environment overview:</mark>
 
-![Testbed Topology](portfolio/master_doc_assets/srsRAN_topology.png)
+![](https://github.com/edwardkeith-io/ORAN-Project/blob/7c16cdf733249fa6a62c3f2a85bc13e110cd0fbf/portfolio/master_doc_assets/srsRAN_topology.png)
 
 # <mark style="background: #FFB86CA6;">System and hardware requirements</mark>
 
@@ -572,7 +572,7 @@ You can test to see if there is a signal being output by the USRP with Wireshark
 
 Install appropriate software for interfacing with the receiver such as SDR++. Input the 4G LTE band 7 frequency parameters and check the waterfall graph for a signal. 
 
-![500](waterfall.jpeg)
+![](https://github.com/edwardkeith-io/ORAN-Project/blob/7c16cdf733249fa6a62c3f2a85bc13e110cd0fbf/portfolio/master_doc_assets/waterfall.jpeg)
 ## File Transfer over srsRAN
 
 ### Step 1: Install OpenSSH Server
@@ -661,10 +661,10 @@ ls /home/katnap/transfer/received
 ### Examples:
 
 Client end should look like this:
-![500](client_end.jpg)
+![](https://github.com/edwardkeith-io/ORAN-Project/blob/7c16cdf733249fa6a62c3f2a85bc13e110cd0fbf/portfolio/master_doc_assets/client_end.jpg)
 
 Host end srsepc/srsenb should look like this:
-![500](host_end.jpg)
+![](https://github.com/edwardkeith-io/ORAN-Project/blob/7c16cdf733249fa6a62c3f2a85bc13e110cd0fbf/portfolio/master_doc_assets/host_end.jpg)
 
 ---
 
