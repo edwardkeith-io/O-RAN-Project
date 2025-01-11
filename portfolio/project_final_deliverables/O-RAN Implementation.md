@@ -45,7 +45,7 @@ The O-RAN R&D project enables the implementation of a 4G LTE or 5G indoor cellul
 
 # <mark style="background: #FFF3A3A6;">srsRAN environment overview:</mark>
 
-![500](AUT/R&D%20Files/Documentation/master_doc_assets/srsRAN_topology.png)
+![Testbed Topology](portfolio/master_doc_assets/srsRAN_topology.png)
 
 # <mark style="background: #FFB86CA6;">System and hardware requirements</mark>
 
