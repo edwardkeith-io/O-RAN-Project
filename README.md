@@ -48,7 +48,7 @@ In addition, we believe that the synthesis of such documentation will allow for 
 
 Traditional 5G small cell base-stations rely heavily on proprietary hardware and software solutions, resulting in high deployment and maintenance costs for network operators. By developing an open-source emulation solution, the project aims to significantly reduce these costs, making 5G infrastructure more accessible and affordable for a wider range of organizations.
 
-#### Scalability and Flexibility
+### Scalability and Flexibility
 
 Proprietary solutions often lack the scalability and flexibility required to adapt to evolving network requirements. The open-source emulation approach allows for greater customization and adaptability, enabling network operators to tailor their infrastructure to specific needs and scale operations more efficiently.
 
