@@ -1,4 +1,4 @@
-# ORAN Project
+# O-RAN Project
 <br>
 
 > [!NOTE]
