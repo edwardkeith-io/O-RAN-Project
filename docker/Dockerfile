@@ -20,11 +20,6 @@ RUN apt-get update && \
     usbutils \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Docker inside the container (optional, if needed)
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
-    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
-    && apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
-
 # UHD setup
 RUN apt-get update && apt-get -y install \
     autoconf automake build-essential ccache cmake cpufrequtils doxygen ethtool fort77 g++ gir1.2-gtk-3.0 git \
@@ -61,5 +56,5 @@ RUN apt-get update && apt-get install -y \
     cd srsRAN_4G && mkdir build && cd build && cmake ../ && make && sudo make install && \
     sudo ./srsran_install_configs.sh user && sudo ./srsran_install_configs.sh service
 
-# Replace the udevadm reload and trigger commands with a shell script that can be executed at runtime
-CMD /bin/bash
+# Set the entry point to a shell script or command that starts the necessary services
+CMD ["/bin/bash"]

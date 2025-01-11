@@ -1,39 +1,22 @@
-# Draft Ansible playbook for srsRAN setup
-# Missing components - further development required
-#
-#Explanation:
-#
-#   Python Installation: The raw module is used to check if Python is installed and install it if missing.
-#   Docker Installation: Docker dependencies, GPG key, and repository are added before installing Docker itself.
-#   Docker Pull & Run: The docker_image module pulls the required srsRAN Docker image, and docker_container ensures it is running.
-#
-#Steps to Execute:
-#
-#    Save the playbook as srsran_setup.yml.
-#    Define the inventory file (inventory.ini) with the IPs or hostnames of the Ubuntu laptops.
-#    Run the playbook with the following command (zsh):
-#
-#                   ansible-playbook -i inventory.ini srsran_setup.yml
-#
-#Notes:
-#
-#    Replace <docker_image_name> with the actual Docker image name for the srsRAN container.
-#    Adjust any paths, repositories, or configurations to match the environment.
-#    Ensure that the SSH user on the Ubuntu laptops has the necessary sudo privileges.
+# Note: This playbook is incomplete and will require additional testing to fully automate the deployment of srsRAN using Docker.
 
----
 - hosts: all
-  become: yes  # This ensures commands requiring root are executed with sudo
-  tasks:
-    - name: Ensure Python is installed
-      raw: |
-        if ! command -v python3 &>/dev/null; then
-          apt-get update
-          apt-get install -y python3
-        fi
+  become: yes # This ensures commands requiring root are executed with sudo
+  vars:
+    docker_gpg_key_url: https://download.docker.com/linux/ubuntu/gpg
+    docker_repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
 
+# Check if Python is installed, if not, install it
+  tasks:
+    - name: Ensure Python3 is installed
+      package:
+        name: python3
+        state: present
+        update_cache: yes
+
+# Install necessary Docker dependencies
     - name: Install Docker dependencies
-      apt:
+      package:
         name:
           - apt-transport-https
           - ca-certificates
@@ -42,45 +25,99 @@
         state: present
         update_cache: yes
 
+# Add Docker GPG key for package verification
     - name: Add Docker GPG key
-      apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
+      ansible.builtin.apt_key:
+        url: "https://download.docker.com/linux/ubuntu/gpg"
         state: present
 
+# Add Docker repository to the package manager
     - name: Add Docker repository
-      apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+      ansible.builtin.apt_repository:
+        repo: "{{ docker_repo }}"
         state: present
-
-    - name: Install Docker
-      apt:
-        name: docker-ce
-        state: latest
         update_cache: yes
 
+# Install the latest version of Docker
+    - name: Install Docker
+      package:
+        name: docker-ce
+        state: latest
+
+# Ensure Docker service is started and enabled at boot
     - name: Start and enable Docker service
       systemd:
         name: docker
         enabled: yes
         state: started
 
-    - name: Pull srsRAN Docker container
-      docker_image:
-        name: <docker_image_name>  # Replace with the Docker image name for srsRAN
-        source: pull
+# Clone the ORAN-Project repository to a temporary local directory
+    - name: Clone the repository
+      git:
+        repo: "https://github.com/edwardkeith-io/ORAN-Project"
+        dest: /tmp/oran_project_repo
+        bare: no
+        clone: yes
+        force: yes
 
-    - name: Run srsRAN container #check USB correctly passed
+# Enable sparse-checkout to filter the content of the repository (we only need the docker and srsran_config folders)
+    - name: Enable sparse-checkout
+      command: git sparse-checkout init
+      args:
+        chdir: /tmp/oran_project_repo
+
+# Configure sparse-checkout to include specific folders
+    - name: Configure sparse-checkout to include specific folders
+      command: git sparse-checkout set docker srsran_config
+      args:
+        chdir: /tmp/oran_project_repo
+
+# Pull the filtered content from the repository
+    - name: Pull the filtered content
+      command: git pull origin main
+      args:
+        chdir: /tmp/oran_project_repo
+
+# Copy srsRAN configuration files to the appropriate directory
+    - name: Copy srsRAN configuration files
+      copy:
+        src: /tmp/oran_project_repo/srsran_config
+        dest: /etc/srsran_config
+        remote_src: yes
+
+# Build the Docker image using the Dockerfile in the cloned repository
+    - name: Build the Docker image
+      docker_image:
+        name: srsran_image
+        build:
+          path: /tmp/oran_project_repo/docker 
+
+# Run the srsRAN container with the built image
+    - name: Run srsRAN container
       docker_container:
-        name: srsran
-        image: <docker_image_name>  # Replace with the Docker image name for srsRAN
+        name: srsRAN
+        image: "srsran_image"
         state: started
         restart_policy: always
         volumes:
-          - /path/to/config:/config  # Adjust the path to match configuration files
+           - /etc/srsran_config:/config  # Host directory mapped to container directory
 
-    - name: Ensure srsRAN is running
-      shell: docker ps | grep srsran
-      register: result
+# Verify that the srsRAN container is running
+    - name: Verify srsRAN container is running
+      docker_container_info:
+        name: srsRAN
+      register: container_info
 
     - debug:
-        msg: "{{ result.stdout }}"
+        msg: "Container status: {{ container_info.state.Status }}"
+
+# Verify that the srsRAN configuration files are accessible inside the container
+    - name: Verify srsRAN configuration files are accessible
+      docker_container_exec:
+        container: srsRAN
+        command: ls /config
+      register: config_files
+
+    - name: Display configuration files in the container
+      debug:
+        msg: "Configuration files in the container: {{ config_files.stdout_lines }}"
