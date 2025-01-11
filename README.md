@@ -1,9 +1,11 @@
 # ORAN Project
+<br>
 
 > [!NOTE]
 > This is a capstone project, not currently intended for external application.
 > <br>
 > If you would like to collaborate on development please get in touch!
+<br>
 
 ## Summary
 
@@ -25,7 +27,13 @@ Chris Escandor<br>
 Katarina Milicevic<br>
 Sam Cathro<br><br>
 
-## Background/Rationale
+## Elevator Pitch
+
+The project demonstrates how open-source platforms can establish cost-effective, scalable, and secure telecommunications networks. It explores the practical application of 4G LTE and 5G cellular technologies in educational and research settings, emphasizing automation, documentation, and modularity for easy reproducibility.
+<br>
+<br>
+
+## Project Rationale
 
 5G small cell (pico) base-stations can provide advanced features and standalone capabilities for private networks. There are two main parts of a mobile base-station – the radio access network (RAN) and the mobile core network. These parts are typically bundled and sold as proprietary hardware and software. However, the advance in virtualization technologies and commercial off-the-shelf (COTS) hardware has made it possible to implement such a base station using opensource software and Software Defined Radios (SDR).
 
